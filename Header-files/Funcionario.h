@@ -8,6 +8,19 @@ class Funcionario: public Pessoa {
     private:
         string cargo;
         float salary;
+    
+    public:
+        Funcionario(int code, string name, string phone, string cargo, float salary);
+
+        //Getters
+        int getCode();
+        string getName();
+        string getPhone();
+        string getCargo();
+        float getSalary();
+        
+        //Metodos da classe
+        void armazenaDadosEmArquivo();
 };
 
 #endif
