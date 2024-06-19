@@ -10,12 +10,9 @@ class Funcionario: public Pessoa {
         float salary;
     
     public:
-        Funcionario(int code, string name, string phone, string cargo, float salary);
+        Funcionario(string name, string phone, string cargo, float salary);
 
         //Getters
-        int getCode();
-        string getName();
-        string getPhone();
         string getCargo();
         float getSalary();
         

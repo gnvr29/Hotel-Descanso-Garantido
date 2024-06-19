@@ -2,18 +2,22 @@
 #define PESSOA_H
 
 #include <iostream>
+#include <fstream>
+
 using namespace std;
 
 class Pessoa {
-    private:
+    protected:
+        static int contador;
         int code;
         string name;
         string phone;
 
-    public:
-        virtual int getCode();
-        virtual string getName();
-        virtual string getPhone();
+    protected:
+        Pessoa();
+        int getCode();
+        string getName();
+        string getPhone();
         virtual void armazenaDadosEmArquivo();
 };
 
