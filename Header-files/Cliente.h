@@ -11,15 +11,15 @@ class Cliente: public Pessoa {
 
     public:
         Cliente(string name, string phone, string endereco);
-
-        //Getters
         string getEndereco();
         int getPontosDeFidelidade();
 
-        //Metodos da classe
     private:
+        string criaStringDeDados();
+        bool pessoaExiste(string identificador);
+        int pesquisaDiarias();
         int definePontosDeFidelidade();
-        void armazenaDadosEmArquivo();
+        void armazenaDadosEmArquivo(string dados);
 };
 
 #endif

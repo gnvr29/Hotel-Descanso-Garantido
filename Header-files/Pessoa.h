@@ -13,11 +13,12 @@ class Pessoa {
         string name;
         string phone;
 
-    protected:
+    public:
         Pessoa();
         int getCode();
         string getName();
         string getPhone();
+        virtual string criaStringDeDados();
         virtual void armazenaDadosEmArquivo();
 };
 

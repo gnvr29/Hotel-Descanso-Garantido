@@ -12,5 +12,6 @@ void cadastraCliente() {
     cout << "Digite o endereco do cliente:" << endl;
     getline(cin, endereco);
 
+    //Armazenamento em arquivo e verificacao de existencia do usuario sao feitas dentro da classe
     Cliente clienteAtual(nome, telefone, endereco);
 }

@@ -17,7 +17,8 @@ class Funcionario: public Pessoa {
         float getSalary();
         
         //Metodos da classe
-        void armazenaDadosEmArquivo();
+    private:
+        void armazenaDadosEmArquivo(string dados);
 };
 
 #endif

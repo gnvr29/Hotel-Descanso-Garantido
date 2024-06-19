@@ -1,4 +1,8 @@
 #include "menu.h"
+#include "../Funcoes/CadastroDeCliente/cadastraCliente.h"
+
+#include "../Funcoes/BuscaCliente/buscaCliente.h"
+#include "../Funcoes/BuscaFuncionario/buscaFuncionario.h"
 
 using namespace std;
 
@@ -10,14 +14,17 @@ void menu(){
         int input = 0;
         switch(input) {
             case 1:
+                cadastraCliente();
                 break;
             case 2:
                 break;
             case 3:
                 break;
             case 4:
+                buscaFuncionario();
                 break;
             case 5:
+                buscaCliente();
                 break;
             case 6:
                 cout << "Obrigado pela interacao, volte sempre...";
