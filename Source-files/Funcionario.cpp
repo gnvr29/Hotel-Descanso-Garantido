@@ -8,3 +8,7 @@ Funcionario::Funcionario(string name, string phone, string cargo, float salario)
     this->cargo = cargo;
     this->salary = salario;
 }
+
+void Funcionario::armazenaDadosEmArquivo(){
+
+}
