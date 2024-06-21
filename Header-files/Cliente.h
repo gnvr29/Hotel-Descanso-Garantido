@@ -13,13 +13,14 @@ class Cliente: public Pessoa {
         Cliente(string name, string phone, string endereco);
         string getEndereco();
         int getPontosDeFidelidade();
+        ~Cliente();
 
     private:
         string criaStringDeDados();
         bool pessoaExiste(string identificador);
         int pesquisaDiarias();
         int definePontosDeFidelidade();
-        void armazenaDadosEmArquivo(string dados);
+        int armazenaDadosEmArquivo(string dados);
 };
 
 #endif

@@ -1,8 +1,4 @@
 #include "menu.h"
-#include "../Funcoes/CadastroDeCliente/cadastraCliente.h"
-
-#include "../Funcoes/BuscaCliente/buscaCliente.h"
-#include "../Funcoes/BuscaFuncionario/buscaFuncionario.h"
 
 using namespace std;
 
@@ -17,8 +13,10 @@ void menu(){
                 cadastraCliente();
                 break;
             case 2:
+                cadastraFuncionario();
                 break;
             case 3:
+                cadastraEstadia();
                 break;
             case 4:
                 buscaFuncionario();

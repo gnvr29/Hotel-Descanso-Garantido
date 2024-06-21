@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -18,8 +20,9 @@ class Pessoa {
         int getCode();
         string getName();
         string getPhone();
+        bool pessoaExiste(string identificador);
         virtual string criaStringDeDados();
-        virtual void armazenaDadosEmArquivo();
+        virtual int armazenaDadosEmArquivo();
 };
 
 #endif 

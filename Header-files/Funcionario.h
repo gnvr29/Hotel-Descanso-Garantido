@@ -15,10 +15,13 @@ class Funcionario: public Pessoa {
         //Getters
         string getCargo();
         float getSalary();
+
+        ~Funcionario();
         
-        //Metodos da classe
     private:
-        void armazenaDadosEmArquivo(string dados);
+        string criaStringDeDados();
+        bool pessoaExiste(string identificador);
+        int armazenaDadosEmArquivo(string dados);
 };
 
 #endif

@@ -21,12 +21,4 @@ class Estadia {
         
 };
 
-
-
-
-
-
-
-
-
 #endif 

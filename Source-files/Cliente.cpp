@@ -6,10 +6,13 @@ Cliente::Cliente(string name, string phone, string endereco) {
     this->name = name;
     this->phone = phone;
     this->endereco = endereco;
-    this->pontosDeFidelidade = definePontosDeFidelidade();
+    this->pontosDeFidelidade = 0;
     
-    string clienteStr = criaStringDeDados();
-    armazenaDadosEmArquivo(clienteStr);
+    if(!pessoaExiste(to_string(code))){
+        string clienteStr = criaStringDeDados();
+        armazenaDadosEmArquivo(clienteStr);
+    } else 
+        cerr << "Erro: Cliente ja existe - Tente novamente" << endl;
 }
 
 //Getters
@@ -33,29 +36,83 @@ string Cliente::criaStringDeDados(){
         + this->name + ", "
         + this->phone + ", "
         + this-> endereco + ", "
-        + to_string(this->pontosDeFidelidade) + ";";
+        + to_string(this->pontosDeFidelidade) + ";\n";
     
     return dados;
 }
 
+bool Cliente::pessoaExiste(string identificador){
+    /*
+    Metodo para verificar se o usuario ja existe (usado ao criar o usuario)
+    Retorna true se o usuario ja for cadastrado ou se houver algum problema ao abrir o arquivo
+    Retorna false se ele nao for cadastrado
+    Entrada: string (codigo ou nome)
+    Saida: bool
+    */
+    ifstream arquivoCliente("../data-files/clientes.txt");
+
+    if(!arquivoCliente){
+        cerr << "Houve um problema ao abrir o arquivo de clientes" << endl;
+        return true;
+    }
+
+    string line;
+    while(getline(arquivoCliente, line)){
+        if(line.find(identificador) != string::npos){
+            arquivoCliente.close(); 
+            return true;
+        }
+    }
+    arquivoCliente.close();  
+    return false;
+}
+
+int Cliente::armazenaDadosEmArquivo(string dados){
+    /*
+    Funcao para armazenar os dados do cliente no arquivo binario
+    Retorna -1 se houver problema ao abrir o arquivo
+    Retorna 0 se os dados forem armazenados com sucesso
+    Entrada: string 
+    Saida: int
+    */
+    ofstream clienteFile("../data-files/clientes.txt");
+
+    if(!clienteFile) {
+        cerr << "Houve um erro ao abrir o arquivo";
+        return -1;
+    }
+
+    clienteFile << dados;
+    clienteFile.close();
+
+    return 0;
+}
+
+/* FUNCOES DESNECESSARIAS: SERAO IMPLEMENTADAS EM OUTRAS FUNCOES OU CLASSES
 int Cliente::pesquisaDiarias(){
     /*
-    Funcao para pesquisar, no arquivo de estadias, todas as estadias do usuario e calcular no numero de diarias (usado no calculo de pontos de fidelidade)
+    Metodo para pesquisar, no arquivo de estadias, todas as estadias do usuario e calcular no numero de diarias (usado no calculo de pontos de fidelidade)
     Retorna -1 se houver um problema ao abrir o arquivo
     Entrada: void
     Saida: int (numero de diarias registradas no nome do usuario)
-    */
+    
 
-    ifstream estadiaFile("../Binary-files/estadias.bin", ios::binary);
+    ifstream estadiaFile("../Binary-files/estadias.txt");
 
     if(!estadiaFile){
         cerr << "Houve um erro ao abrir o arquivo de estadias" << endl;
         return -1;
     }
-
-
     int diarias;
+    string estadia;
+    while(getline(estadiaFile, estadia)){
+        if(estadia.find(to_string(this->code)) != string::npos){
+            
+        }
+    }
+
     estadiaFile.close();
+    
 
     return diarias;
 }
@@ -65,28 +122,10 @@ int Cliente::definePontosDeFidelidade(){
     Funcao que realiza o calculo de pontos de fidelidade do usuario, baseado no valor retornado por pesquisaDiarias()
     Entrada: void
     Saida: int (pontosDeFidelidade)
-    */
+    
     int numeroDeDiarias = pesquisaDiarias();
     int pontosDeFidelidade = 10 * numeroDeDiarias;
     
     return pontosDeFidelidade;
 }
-
-void Cliente::armazenaDadosEmArquivo(string dados){
-    /*
-    Funcao para armazenar um dada string no arquivo binario de clientes
-    Entrada: string 
-    Saida: void
-    */
-    fstream clienteFile("../Binary-files/clientes.bin", ios::out | ios::binary);
-
-    if(!clienteFile) {
-        cerr << "Houve um erro ao abrir o arquivo";
-        return;
-    }
-    
-    size_t dadosLen = dados.size(); //Armazena o tamanho em bytes da string
-    clienteFile.write(reinterpret_cast<char*>(&dados), sizeof(dadosLen)); //Reserva o espaco no arquivo
-    clienteFile.write(dados.c_str(), dadosLen); //Escreve o conteudo no espaco reservado. c_str() converte a string para um array de caracteres, como em C
-    clienteFile.close();
-}
+*/
