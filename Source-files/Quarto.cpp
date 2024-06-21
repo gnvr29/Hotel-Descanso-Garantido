@@ -2,7 +2,7 @@
 
 using namespace std;
 
-float Quarto::getDiaria() {
+double Quarto::getDiaria() {
     diaria = 300 + (150 * hospedes);
 }
 
@@ -16,4 +16,12 @@ int Quarto::getHospedes(){
 
 bool Quarto::getStatus(){
     return this->status;
+}
+
+void Quarto::ocupado() { 
+    status = false; 
+}
+
+void Quarto::liberado() { 
+    status = true; 
 }
