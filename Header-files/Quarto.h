@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
+
 
 using namespace std;
 
@@ -15,10 +17,12 @@ class Quarto {
     
     //Getters
     public:
-        float getDiaria();
         int getNumero();
         int getHospedes();
+        double getDiaria();
         bool getStatus();
+        void ocupado();
+        void liberado();
 
 };
 
