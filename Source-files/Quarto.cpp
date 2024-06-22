@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Quarto::Quarto(int hospedes, int diaria, bool status) {
+Quarto::Quarto(int hospedes, float diaria, bool status) {
     this->hospedes = hospedes;
     this->diaria = diaria;
     this->status = status;

@@ -17,7 +17,7 @@ class Quarto {
     
     //Getters
     public:
-      Quarto(int hospedes, int diaria, bool status);
+      Quarto(int hospedes, float diaria, bool status);
       bool quartoExiste(string identificador);
       virtual string criaStringDeDados();
       virtual int armazenaDadosEmArquivo(string dados);
