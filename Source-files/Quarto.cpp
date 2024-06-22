@@ -10,7 +10,7 @@ float Quarto::valorDiaria() {
     diaria = 300 + (150 * hospedes);
 }
 
-Quarto::Quarto(int hospedes, bool status) {
+Quarto::Quarto(int hospedes, string status) {
     this->hospedes = hospedes;
     this->status = status;
 
@@ -26,7 +26,7 @@ string Quarto::criaStringDeDados(){
         to_string(this->numero) + ", "
         + to_string(this->hospedes) + ", "
         + to_string(this->diaria) + ", "
-        + to_string(this->status) + ";\n";       
+        + (this->status) + ";\n";       
     
     return dados;
 }
@@ -103,7 +103,7 @@ int Quarto::getHospedes(){
     return this->hospedes;
 }
 
-bool Quarto::getStatus(){
+string Quarto::getStatus(){
     return this->status;
 }
 
