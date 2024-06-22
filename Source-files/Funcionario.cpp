@@ -64,7 +64,7 @@ int Funcionario::armazenaDadosEmArquivo(string dados){
     Saida: int (codigo de erro)
     */
 
-    ofstream funcionarioFile("../data-files/funcionarios.txt");
+    ofstream funcionarioFile("../data-files/funcionarios.txt", ios::app);
 
     if(!funcionarioFile){
         cerr << "Houve um erro ao abrir o arquivo de funcionarios" << endl;

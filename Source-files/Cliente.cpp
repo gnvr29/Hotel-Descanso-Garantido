@@ -16,6 +16,7 @@ Cliente::Cliente(string name, string phone, string endereco) {
 }
 
 //Getters
+/*
 string Cliente::getEndereco(){
     return this->endereco;
 }
@@ -23,6 +24,7 @@ string Cliente::getEndereco(){
 int Cliente::getPontosDeFidelidade(){
     return this->pontosDeFidelidade;
 }
+*/
 
 string Cliente::criaStringDeDados(){
     /*
@@ -59,11 +61,12 @@ bool Cliente::pessoaExiste(string identificador){
     string line;
     while(getline(arquivoCliente, line)){
         if(line.find(identificador) != string::npos){
-            arquivoCliente.close(); 
+            arquivoCliente.close();
             return true;
         }
     }
-    arquivoCliente.close();  
+
+    arquivoCliente.close(); 
     return false;
 }
 
@@ -75,10 +78,10 @@ int Cliente::armazenaDadosEmArquivo(string dados){
     Entrada: string 
     Saida: int
     */
-    ofstream clienteFile("../data-files/clientes.txt");
+    ofstream clienteFile("../data-files/clientes.txt", ios::app);
 
     if(!clienteFile) {
-        cerr << "Houve um erro ao abrir o arquivo";
+        cerr << "Houve um erro ao abrir o arquivo de clientes";
         return -1;
     }
 

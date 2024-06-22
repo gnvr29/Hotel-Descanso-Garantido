@@ -17,10 +17,7 @@ class Pessoa {
 
     public:
         Pessoa();
-        int getCode();
-        string getName();
-        string getPhone();
-        bool pessoaExiste(string identificador);
+        virtual bool pessoaExiste(string identificador);
         virtual string criaStringDeDados();
         virtual int armazenaDadosEmArquivo();
 };

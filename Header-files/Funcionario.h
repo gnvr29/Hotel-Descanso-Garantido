@@ -11,11 +11,6 @@ class Funcionario: public Pessoa {
     
     public:
         Funcionario(string name, string phone, string cargo, float salary);
-
-        //Getters
-        string getCargo();
-        float getSalary();
-
         ~Funcionario();
         
     private:
