@@ -9,19 +9,19 @@ using namespace std;
 
 class Quarto {
     private:
+        static int contador;
         int numero;
         int hospedes;
         float diaria;
-        bool status;
+        string status;
     
-    //Getters
     public:
-        int getNumero();
-        int getHospedes();
-        double getDiaria();
-        bool getStatus();
-        void ocupado();
-        void liberado();
+      Quarto();
+      float valorDiaria();
+      Quarto(int hospedes, string status);
+      bool quartoExiste(string identificador);
+      virtual string criaStringDeDados();
+      virtual int armazenaDadosEmArquivo(string dados);
 
 };
 
