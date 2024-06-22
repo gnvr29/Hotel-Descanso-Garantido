@@ -17,12 +17,10 @@ class Quarto {
     
     //Getters
     public:
-        int getNumero();
-        int getHospedes();
-        double getDiaria();
-        bool getStatus();
-        void ocupado();
-        void liberado();
+      Quarto(int hospedes, int diaria, bool status);
+      bool quartoExiste(string identificador);
+      virtual string criaStringDeDados();
+      virtual int armazenaDadosEmArquivo(string dados);
 
 };
 
