@@ -10,14 +10,16 @@ using namespace std;
 
 class Quarto {
     private:
+        static int contador;
         int numero;
         int hospedes;
         float diaria;
         bool status;
     
-    //Getters
     public:
-      Quarto(int hospedes, float diaria, bool status);
+      Quarto();
+      float valorDiaria();
+      Quarto(int hospedes, bool status);
       bool quartoExiste(string identificador);
       virtual string criaStringDeDados();
       virtual int armazenaDadosEmArquivo(string dados);

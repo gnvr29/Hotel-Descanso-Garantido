@@ -2,9 +2,16 @@
 
 using namespace std;
 
-Quarto::Quarto(int hospedes, float diaria, bool status) {
+Quarto::Quarto(){
+    numero = ++contador;
+}
+
+float Quarto::valorDiaria() {
+    diaria = 300 + (150 * hospedes);
+}
+
+Quarto::Quarto(int hospedes, bool status) {
     this->hospedes = hospedes;
-    this->diaria = diaria;
     this->status = status;
 
        if(!quartoExiste(to_string(numero))){
