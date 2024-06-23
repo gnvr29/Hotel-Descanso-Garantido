@@ -13,18 +13,15 @@ class Estadia {
     private:
         static int contador;
         int codeEstadia;
-        time_t entryDate;
-        time_t exitDate;
+        string checkInDate;
+        string checkOutDate;
         int quantDiarias;
         int codeCliente;
-        Quarto* quarto;
-        int numero;
+        int quartoNum;
 
     public:
-    Estadia(time_t entryDate, time_t exitDate, int codigoCliente, Quarto* quarto);
+    Estadia();
 
-    static Estadia* cadastrarEstadia(int codigoCliente, int quantidadeHospedes, time_t dataEntrada, time_t dataSaida, std::vector<Quarto>& quartosDisponiveis);
-    void printEstadiaDetails() const;
 
 };
 

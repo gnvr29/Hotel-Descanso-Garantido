@@ -98,7 +98,7 @@ float baixaDeEstadia(int code){
     quartoAllLines.push_back(quartoDesocupado);
 
     //Altera o status do quarto para desocupado ao sobrescrever 
-    ofstream quartosFileEditar("../../data-files/quartos.txt", ios::app);
+    ofstream quartosFileEditar("../../data-files/quartos.txt");
 
     if(!quartosFileEditar){
         cerr << "Houve um erro ao abrir o arquivo de quartos para editar o status do quarto" << endl;
