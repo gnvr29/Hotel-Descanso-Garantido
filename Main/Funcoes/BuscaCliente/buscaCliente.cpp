@@ -46,7 +46,7 @@ string buscaCliente(int code, const string& nome) {
     getline(ssCliente, codigo, ',');
     getline(ssCliente, name, ',');
     getline(ssCliente, phone, ',');
-    getline(ssCliente, endereco, ';');
+    getline(ssCliente, endereco, ',');
     getline(ssCliente, pontosDeFidelidade, ';');
 
     //Remove espaco em branco no comeco de cada string e salva a string com os dados necessarios
