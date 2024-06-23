@@ -10,7 +10,7 @@ Quarto::Quarto(int hospedes) {
     this->diaria = valorDiaria();
     this->status = "desocupado";
 
-       if(!quartoExiste(to_string(numero))){
+    if(!quartoExiste(to_string(numero))){
         string quartoStr = criaStringDeDados();
         armazenaDadosEmArquivo(quartoStr);
     } else 
