@@ -59,7 +59,7 @@ int Quarto::armazenaDadosEmArquivo(string dados){
     Entrada: string 
     Saida: int
     */
-    ofstream quartoFile("../data-files/quartos.txt");
+    ofstream quartoFile("../data-files/quartos.txt", ios::app);
 
     if(!quartoFile) {
         cerr << "Houve um erro ao abrir o arquivo de quartos";
