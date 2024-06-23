@@ -12,13 +12,12 @@ class Quarto {
         static int contador;
         int numero;
         int hospedes;
-        float diaria;
+        int diaria;
         string status;
     
     public:
-      Quarto();
-      float valorDiaria();
-      Quarto(int hospedes, string status);
+      int valorDiaria();
+      Quarto(int hospedes);
       bool quartoExiste(string identificador);
       virtual string criaStringDeDados();
       virtual int armazenaDadosEmArquivo(string dados);

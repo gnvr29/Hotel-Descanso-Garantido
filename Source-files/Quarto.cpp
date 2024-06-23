@@ -2,17 +2,13 @@
 
 using namespace std;
 
-Quarto::Quarto(){
-    numero = ++contador;
-}
+int Quarto::contador = 0;
 
-float Quarto::valorDiaria() {
-    diaria = 300 + (150 * hospedes);
-}
-
-Quarto::Quarto(int hospedes, string status) {
+Quarto::Quarto(int hospedes) {
+    this->numero = ++contador;
     this->hospedes = hospedes;
-    this->status = status;
+    this->diaria = valorDiaria();
+    this->status = "desocupado";
 
        if(!quartoExiste(to_string(numero))){
         string quartoStr = criaStringDeDados();
@@ -29,6 +25,10 @@ string Quarto::criaStringDeDados(){
         + (this->status) + ";\n";       
     
     return dados;
+}
+
+int Quarto::valorDiaria() {
+    diaria = 300 + (150 * hospedes);
 }
 
 bool Quarto::quartoExiste(string identificador){
@@ -53,8 +53,8 @@ bool Quarto::quartoExiste(string identificador){
 
 int Quarto::armazenaDadosEmArquivo(string dados){
     /*
-    Funcao para armazenar os dados do cliente no arquivo binario
-    Retorna -1 se houver problema ao abrir o arquivo
+    Funcao para armazenar os dados do quarto no arquivo
+    Retorna 1 se houver problema ao abrir o arquivo
     Retorna 0 se os dados forem armazenados com sucesso
     Entrada: string 
     Saida: int
@@ -63,7 +63,7 @@ int Quarto::armazenaDadosEmArquivo(string dados){
 
     if(!quartoFile) {
         cerr << "Houve um erro ao abrir o arquivo de quartos";
-        return -1;
+        return 1;
     }
 
     quartoFile << dados;
@@ -71,23 +71,6 @@ int Quarto::armazenaDadosEmArquivo(string dados){
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
