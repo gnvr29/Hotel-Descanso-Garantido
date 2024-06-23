@@ -9,7 +9,7 @@
 
 #include "../../../Header-files/Funcionario.h"
 
-string buscaFuncionario(int code, string nome);
+string buscaFuncionario(int code, string& nome);
 
 
 #endif

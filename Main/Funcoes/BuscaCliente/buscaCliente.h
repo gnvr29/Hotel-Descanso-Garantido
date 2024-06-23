@@ -9,7 +9,7 @@
 
 #include "../../../Header-files/Cliente.h"
 
-string buscaCliente(int code, string nome);
+string buscaCliente(int code, string& nome);
 
 
 
