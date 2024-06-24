@@ -72,7 +72,7 @@ bool Cliente::pessoaExiste(string identificador){
 
 int Cliente::armazenaDadosEmArquivo(string dados){
     /*
-    Funcao para armazenar os dados do cliente no arquivo binario
+    Funcao para armazenar os dados do cliente no arquivo
     Retorna -1 se houver problema ao abrir o arquivo
     Retorna 0 se os dados forem armazenados com sucesso
     Entrada: string 
@@ -90,45 +90,3 @@ int Cliente::armazenaDadosEmArquivo(string dados){
 
     return 0;
 }
-
-/* FUNCOES DESNECESSARIAS: SERAO IMPLEMENTADAS EM OUTRAS FUNCOES OU CLASSES
-int Cliente::pesquisaDiarias(){
-    /*
-    Metodo para pesquisar, no arquivo de estadias, todas as estadias do usuario e calcular no numero de diarias (usado no calculo de pontos de fidelidade)
-    Retorna -1 se houver um problema ao abrir o arquivo
-    Entrada: void
-    Saida: int (numero de diarias registradas no nome do usuario)
-    
-
-    ifstream estadiaFile("../Binary-files/estadias.txt");
-
-    if(!estadiaFile){
-        cerr << "Houve um erro ao abrir o arquivo de estadias" << endl;
-        return -1;
-    }
-    int diarias;
-    string estadia;
-    while(getline(estadiaFile, estadia)){
-        if(estadia.find(to_string(this->code)) != string::npos){
-            
-        }
-    }
-
-    estadiaFile.close();
-    
-
-    return diarias;
-}
-
-int Cliente::definePontosDeFidelidade(){
-    /*
-    Funcao que realiza o calculo de pontos de fidelidade do usuario, baseado no valor retornado por pesquisaDiarias()
-    Entrada: void
-    Saida: int (pontosDeFidelidade)
-    
-    int numeroDeDiarias = pesquisaDiarias();
-    int pontosDeFidelidade = 10 * numeroDeDiarias;
-    
-    return pontosDeFidelidade;
-}
-*/
