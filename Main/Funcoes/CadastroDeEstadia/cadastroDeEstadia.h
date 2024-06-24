@@ -7,6 +7,6 @@
 
 using namespace std;
 
-void cadastraEstadia();
+int cadastraEstadia();
 
 #endif
