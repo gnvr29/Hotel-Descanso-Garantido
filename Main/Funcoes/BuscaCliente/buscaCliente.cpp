@@ -16,7 +16,7 @@ int buscaCliente() {
     getline(cin, identificador);
 
     //Abre arquivo de cliente para leitura
-    ifstream clientesFile("../../data-files/clientes.txt");
+    ifstream clientesFile("../../../data-files/clientes.txt");
 
     if(!clientesFile){
         cerr << "Houve um erro ao abrir o arquivo de clientes" << endl;

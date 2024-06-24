@@ -16,7 +16,7 @@ int buscaFuncionario() {
     getline(cin, identificador);
 
     //Abre arquivo de Funcionario para leitura
-    ifstream FuncionariosFile("../../data-files/Funcionarios.txt");
+    ifstream FuncionariosFile("../../../data-files/Funcionarios.txt");
 
     if(!FuncionariosFile){
         cerr << "Houve um erro ao abrir o arquivo de Funcionarios" << endl;

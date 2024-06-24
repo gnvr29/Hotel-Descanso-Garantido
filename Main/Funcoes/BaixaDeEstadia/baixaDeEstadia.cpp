@@ -17,7 +17,7 @@ int baixaDeEstadia(){
     getline(cin, codigoEstadia);
 
     //Abre arquivo de estadia para leitura
-    ifstream estadiasFile("../../data-files/estadias.txt");
+    ifstream estadiasFile("../../../data-files/estadias.txt");
 
     if(!estadiasFile){
         cerr << "Houve um erro ao abrir o arquivo de estadia" << endl;
