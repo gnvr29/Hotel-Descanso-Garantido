@@ -2,17 +2,19 @@
 
 using namespace std;
 
-int baixaDeEstadia(int code){
+int baixaDeEstadia(){
     /*
     Funcao que recebe o codigo de uma estadia, procura-a no arquivo estadias.txt,
     pega o numero do quarto e altera seu status, e retorna o valor a ser pago
     Retorna 1 se houver erro ao abrir um arquivo ou se o quarto ou estadia nao existir
     Retorna 0 se tudo ocorrer como planejado
-    Entrada: int (codigo de estadia)
-    Saida: float (valor a ser pago)
+    Entrada: void
+    Saida: void
     */
 
-    string codigoEstadia = to_string(code);
+    string codigoEstadia;
+    cout << "Digite o codigo da estadia:" << endl;
+    getline(cin, codigoEstadia);
 
     //Abre arquivo de estadia para leitura
     ifstream estadiasFile("../../data-files/estadias.txt");

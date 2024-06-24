@@ -7,7 +7,6 @@
 #include <sstream>
 #include <vector>
 
-
-int baixaDeEstadia(int code);
+int baixaDeEstadia();
 
 #endif
