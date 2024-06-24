@@ -2,42 +2,41 @@
 
 using namespace std;
 
-string buscaCliente(int code, const string& nome) {
-
-       /*
+int buscaCliente() {
+    /*
     Funcao que recebe o codigo ou o nome de um cliente, procura-o no arquivo clientes.txt,
     e apresenta todas as informações do cliente.
+    Retorna 1 se houver um problema ao abrir o arquivo ou se o cliente nao existir
+    Retorna 0 se tudo ocorrer como planejado
     Entrada: int (codigo do cliente) - string (nome do cliente)
     Saida: string (informações do cliente)
     */
-
-    string codigoCliente = to_string(code);
-    string nomeCliente = nome;
-
+    string identificador;
+    cout << "Digite o codigo ou nome do cliente:" << endl;
+    getline(cin, identificador);
 
     //Abre arquivo de cliente para leitura
     ifstream clientesFile("../../data-files/clientes.txt");
 
     if(!clientesFile){
         cerr << "Houve um erro ao abrir o arquivo de clientes" << endl;
-        return "";
+        return 1;
     }
 
     string line;
     string clienteDados = "";
 
     while(getline(clientesFile, line)) {
-        if(line.find(codigoCliente) != string::npos || line.find(nomeCliente) != string::npos){
+        if(line.find(identificador) != string::npos){
             clienteDados = line;
             break;
         }
     }
-
     clientesFile.close();
 
      if(clienteDados == ""){
         cerr << "Erro: Cliente nao encontrado" << endl;
-        return 0;
+        return 1;
     }
 
     //Extrai todas as informacoes da linha
@@ -57,7 +56,6 @@ string buscaCliente(int code, const string& nome) {
 
     // Exibe a string resultado com os dados do cliente
     string resultado = "Nome: " + name + "\nTelefone: " + phone + "\nEndereço: " + endereco + "\nPontos de Fidelidade: " + pontosDeFidelidade;
-
-    return resultado;
-
+    cout << resultado << endl;
+    return 0;
 }

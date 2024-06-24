@@ -2,10 +2,12 @@
 
 using namespace std;
 
-float baixaDeEstadia(int code){
+int baixaDeEstadia(int code){
     /*
     Funcao que recebe o codigo de uma estadia, procura-a no arquivo estadias.txt,
     pega o numero do quarto e altera seu status, e retorna o valor a ser pago
+    Retorna 1 se houver erro ao abrir um arquivo ou se o quarto ou estadia nao existir
+    Retorna 0 se tudo ocorrer como planejado
     Entrada: int (codigo de estadia)
     Saida: float (valor a ser pago)
     */
@@ -17,7 +19,7 @@ float baixaDeEstadia(int code){
 
     if(!estadiasFile){
         cerr << "Houve um erro ao abrir o arquivo de estadia" << endl;
-        return 0;
+        return 1;
     }
     
     //Procura estadia com determinado codigo e armazena a linha contendo sua informacoes
@@ -32,7 +34,7 @@ float baixaDeEstadia(int code){
 
     if(estadiaData == ""){
         cerr << "Erro: estadia nao encontrada" << endl;
-        return 0;
+        return 1;
     }
 
     //Extrai todas informacoes da linha
@@ -74,7 +76,7 @@ float baixaDeEstadia(int code){
 
     if(quartoData == ""){
         cerr << "Erro: quarto nao registrado" << endl;
-        return 0;
+        return 1;
     }
 
     //Extrai todas as informacoes do quarto
@@ -102,8 +104,8 @@ float baixaDeEstadia(int code){
 
     if(!quartosFileEditar){
         cerr << "Houve um erro ao abrir o arquivo de quartos para editar o status do quarto" << endl;
-        return 0;
-    }   
+        return 1;
+    }
 
     for(string quarto : quartoAllLines){
         quartosFileEditar << quarto;
@@ -113,5 +115,6 @@ float baixaDeEstadia(int code){
     //Calcula o valor a ser pago
     int valorPago = stoi(diarias) * stoi(valorDiaria);
 
-    return valorPago;
+    cout << "A baixa na estadia foi realizada com sucesso!" << endl << "O valor a ser pago sera: R$" << valorPago << ",00" << endl;
+    return 0;
 }

@@ -8,6 +8,6 @@
 #include <vector>
 
 
-float baixaDeEstadia(int code);
+int baixaDeEstadia(int code);
 
 #endif

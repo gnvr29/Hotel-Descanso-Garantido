@@ -6,7 +6,7 @@ int calculaPontosDeFidelidade(string clientCode){
     /*
     Procedimento que procura, no arquivo de estadias, todas as estadias de um usuario,
     extraindo o numero de diarias, e alterando os pontos de fidelidade do cliente.
-    Retorna q caso haja um problema ao abrir um arquivo
+    Retorna 1 caso haja um problema ao abrir um arquivo
     Retorna 0 se nenhum usuario for encontrado
     Entrada: int (codigo do cliente)
     Saida: int (pontos de fidelidadade)

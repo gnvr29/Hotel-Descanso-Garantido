@@ -9,8 +9,6 @@
 
 #include "../../../Header-files/Cliente.h"
 
-string buscaCliente(int code, string& nome);
-
-
+int buscaCliente();
 
 #endif

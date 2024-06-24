@@ -2,42 +2,41 @@
 
 using namespace std;
 
-string buscaFuncionario(int code, const string& nome) {
-
-       /*
+int buscaFuncionario() {
+    /*
     Funcao que recebe o codigo ou o nome de um Funcionario, procura-o no arquivo Funcionarios.txt,
     e apresenta todas as informações do Funcionario.
+    Retorna 1 se houver algum problema ao abrir o arquivo, ou se o funcionario nao existir
     Entrada: int (codigo do Funcionario) - string (nome do Funcionario)
     Saida: string (informações do Funcionario)
     */
 
-    string codigoFuncionario = to_string(code);
-    string nomeFuncionario = nome;
-
+    string identificador;
+    cout << "Digite o codigo ou nome do funcionario:" << endl;
+    getline(cin, identificador);
 
     //Abre arquivo de Funcionario para leitura
     ifstream FuncionariosFile("../../data-files/Funcionarios.txt");
 
     if(!FuncionariosFile){
         cerr << "Houve um erro ao abrir o arquivo de Funcionarios" << endl;
-        return "";
+        return 1;
     }
 
     string line;
     string FuncionarioDados = "";
 
     while(getline(FuncionariosFile, line)) {
-        if(line.find(codigoFuncionario) != string::npos || line.find(nomeFuncionario) != string::npos){
+        if(line.find(identificador) != string::npos){
             FuncionarioDados = line;
             break;
         }
     }
+    FuncionariosFile.close();
 
-     FuncionariosFile.close();
-
-     if(FuncionarioDados == ""){
+    if(FuncionarioDados == ""){
         cerr << "Erro: Funcionario nao encontrado" << endl;
-        return 0;
+        return 1;
     }
 
     //Extrai todas as informacoes da linha
@@ -57,7 +56,6 @@ string buscaFuncionario(int code, const string& nome) {
 
     // Exibe a string resultado com os dados do Funcionario
     string resultado = "Nome: " + name + "\nTelefone: " + phone + "\nCargo: " + cargo + "\nSalario: " + salary;
-
-    return resultado;
-
+    cout << resultado << endl;
+    return 0;
 }
